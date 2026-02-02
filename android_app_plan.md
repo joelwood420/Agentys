@@ -1517,4 +1517,7 @@ WorkManager (Recommended)
         "x=10, y=20"
       ],
       "correctAnswerIndex": 2,
-      "explanation": "The code won't compile
+      "explanation": "The code won't compile because 'y' is declared as 'val' (immutable), so the line 'y = x' will cause a compilation error. In Kotlin, 'val' creates a read-only variable that cannot be reassigned after initialization."
+    }
+  ]
+}
