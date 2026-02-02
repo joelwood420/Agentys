@@ -1,0 +1,418 @@
+[
+  {
+    "id": "kotlin_001",
+    "language": "KOTLIN",
+    "difficulty": "EASY",
+    "codeSnippet": "fun main() {\n    var x = 10\n    val y = 20\n    x = y\n    y = x\n    println(\"x=$x, y=$y\")\n}",
+    "question": "What will this code print?",
+    "options": [
+      "x=20, y=20",
+      "x=20, y=10",
+      "Compilation error",
+      "x=10, y=20"
+    ],
+    "correctAnswerIndex": 2,
+    "explanation": "The code will not compile because 'y' is declared as 'val' (immutable), so it cannot be reassigned. The line 'y = x' will cause a compilation error.",
+    "topic": "variables"
+  },
+  {
+    "id": "kotlin_002",
+    "language": "KOTLIN",
+    "difficulty": "EASY",
+    "codeSnippet": "fun main() {\n    val list = listOf(1, 2, 3)\n    list.add(4)\n    println(list)\n}",
+    "question": "What's wrong with this code?",
+    "options": [
+      "Nothing, it prints [1, 2, 3, 4]",
+      "add() function doesn't exist",
+      "listOf() creates an immutable list",
+      "Syntax error"
+    ],
+    "correctAnswerIndex": 2,
+    "explanation": "listOf() creates a read-only (immutable) list. To create a mutable list, use mutableListOf(). The add() function is not available on immutable lists.",
+    "topic": "collections"
+  },
+  {
+    "id": "java_001",
+    "language": "JAVA",
+    "difficulty": "MEDIUM",
+    "codeSnippet": "public class Test {\n    public static void main(String[] args) {\n        String s1 = \"Hello\";\n        String s2 = \"Hello\";\n        String s3 = new String(\"Hello\");\n        System.out.println(s1 == s2);\n        System.out.println(s1 == s3);\n    }\n}",
+    "question": "What does this code print?",
+    "options": [
+      "true, true",
+      "true, false",
+      "false, false",
+      "false, true"
+    ],
+    "correctAnswerIndex": 1,
+    "explanation": "s1 and s2 refer to the same string in the string pool, so s1 == s2 is true. s3 creates a new String object in heap memory, so s1 == s3 is false. Use .equals() to compare string content.",
+    "topic": "strings"
+  },
+  {
+    "id": "python_001",
+    "language": "PYTHON",
+    "difficulty": "EASY",
+    "codeSnippet": "def modify_list(lst):\n    lst.append(4)\n    lst = [1, 2, 3]\n    \nmy_list = [0]\nmodify_list(my_list)\nprint(my_list)",
+    "question": "What does this code print?",
+    "options": [
+      "[0, 4]",
+      "[1, 2, 3]",
+      "[0]",
+      "[1, 2, 3, 4]"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "The append() modifies the original list, making it [0, 4]. However, the reassignment 'lst = [1, 2, 3]' only changes the local variable 'lst' and doesn't affect the original my_list.",
+    "topic": "functions"
+  },
+  {
+    "id": "javascript_001",
+    "language": "JAVASCRIPT",
+    "difficulty": "MEDIUM",
+    "codeSnippet": "console.log(0.1 + 0.2 === 0.3);",
+    "question": "What does this code output?",
+    "options": [
+      "true",
+      "false",
+      "undefined",
+      "NaN"
+    ],
+    "correctAnswerIndex": 1,
+    "explanation": "Due to floating-point precision issues, 0.1 + 0.2 equals 0.30000000000000004, not exactly 0.3. This is a common issue with floating-point arithmetic in JavaScript and many other languages.",
+    "topic": "numbers"
+  },
+  {
+    "id": "javascript_002",
+    "language": "JAVASCRIPT",
+    "difficulty": "EASY",
+    "codeSnippet": "for (var i = 0; i < 3; i++) {\n    setTimeout(() => console.log(i), 100);\n}",
+    "question": "What does this code print?",
+    "options": [
+      "0 1 2",
+      "3 3 3",
+      "undefined undefined undefined",
+      "0 0 0"
+    ],
+    "correctAnswerIndex": 1,
+    "explanation": "The 'var' keyword has function scope, not block scope. By the time the setTimeout callbacks execute, the loop has finished and i is 3. To fix this, use 'let' instead of 'var' for block scoping.",
+    "topic": "closures"
+  },
+  {
+    "id": "python_002",
+    "language": "PYTHON",
+    "difficulty": "MEDIUM",
+    "codeSnippet": "def create_multipliers():\n    return [lambda x: x * i for i in range(5)]\n\nmultipliers = create_multipliers()\nprint(multipliers[0](2))",
+    "question": "What is the output?",
+    "options": [
+      "0",
+      "2",
+      "8",
+      "10"
+    ],
+    "correctAnswerIndex": 2,
+    "explanation": "This is a late binding closure issue. All lambda functions reference the same variable 'i', which has the value 4 after the loop completes. So multipliers[0](2) returns 2 * 4 = 8, not 2 * 0 = 0.",
+    "topic": "closures"
+  },
+  {
+    "id": "kotlin_003",
+    "language": "KOTLIN",
+    "difficulty": "MEDIUM",
+    "codeSnippet": "fun main() {\n    val x: Int? = null\n    val y = x ?: 5\n    val z = x?.plus(10)\n    println(\"y=$y, z=$z\")\n}",
+    "question": "What does this print?",
+    "options": [
+      "y=null, z=null",
+      "y=5, z=null",
+      "y=5, z=10",
+      "Compilation error"
+    ],
+    "correctAnswerIndex": 1,
+    "explanation": "The Elvis operator (?:) returns 5 when x is null, so y=5. The safe call operator (?.) returns null if x is null, so z=null (the plus operation is not performed).",
+    "topic": "null_safety"
+  },
+  {
+    "id": "java_002",
+    "language": "JAVA",
+    "difficulty": "HARD",
+    "codeSnippet": "public class Test {\n    public static void main(String[] args) {\n        Integer a = 128;\n        Integer b = 128;\n        System.out.println(a == b);\n        \n        Integer c = 127;\n        Integer d = 127;\n        System.out.println(c == d);\n    }\n}",
+    "question": "What is the output?",
+    "options": [
+      "true, true",
+      "false, false",
+      "true, false",
+      "false, true"
+    ],
+    "correctAnswerIndex": 3,
+    "explanation": "Java caches Integer objects from -128 to 127. So c and d reference the same cached object (true). But a and b create new Integer objects (false). This is Integer caching optimization.",
+    "topic": "autoboxing"
+  },
+  {
+    "id": "python_003",
+    "language": "PYTHON",
+    "difficulty": "EASY",
+    "codeSnippet": "my_list = [1, 2, 3]\nmy_list[3] = 4\nprint(my_list)",
+    "question": "What happens when this code runs?",
+    "options": [
+      "Prints [1, 2, 3, 4]",
+      "Prints [1, 2, 4]",
+      "IndexError: list assignment index out of range",
+      "Nothing, the code is valid but doesn't print"
+    ],
+    "correctAnswerIndex": 2,
+    "explanation": "Python lists are zero-indexed, so valid indices are 0, 1, 2. Trying to assign to index 3 (which doesn't exist) raises an IndexError. Use append() to add elements to the end.",
+    "topic": "lists"
+  },
+  {
+    "id": "javascript_003",
+    "language": "JAVASCRIPT",
+    "difficulty": "MEDIUM",
+    "codeSnippet": "const obj = { a: 1 };\nconst arr = [obj];\nobj.a = 2;\nconsole.log(arr[0].a);",
+    "question": "What is logged to the console?",
+    "options": [
+      "1",
+      "2",
+      "undefined",
+      "Error"
+    ],
+    "correctAnswerIndex": 1,
+    "explanation": "Arrays and objects are passed by reference in JavaScript. arr[0] and obj reference the same object in memory. When obj.a is changed to 2, arr[0].a also reflects this change.",
+    "topic": "references"
+  },
+  {
+    "id": "kotlin_004",
+    "language": "KOTLIN",
+    "difficulty": "HARD",
+    "codeSnippet": "fun main() {\n    val numbers = listOf(1, 2, 3, 4, 5)\n    val result = numbers\n        .map { it * 2 }\n        .filter { it > 5 }\n        .take(2)\n    println(result.sum())\n}",
+    "question": "What is printed?",
+    "options": [
+      "10",
+      "18",
+      "16",
+      "14"
+    ],
+    "correctAnswerIndex": 3,
+    "explanation": "map {it * 2} transforms [1,2,3,4,5] to [2,4,6,8,10]. filter {it > 5} keeps only values greater than 5, resulting in [6,8,10]. take(2) selects the first 2 elements: [6,8]. Finally, sum() adds them: 6 + 8 = 14.",
+    "topic": "collections"
+  },
+  {
+    "id": "java_003",
+    "language": "JAVA",
+    "difficulty": "EASY",
+    "codeSnippet": "public class Test {\n    public static void main(String[] args) {\n        int x = 5;\n        System.out.println(x++);\n        System.out.println(++x);\n    }\n}",
+    "question": "What is the output?",
+    "options": [
+      "5, 6",
+      "6, 7",
+      "5, 7",
+      "6, 6"
+    ],
+    "correctAnswerIndex": 2,
+    "explanation": "x++ is post-increment (prints 5, then x becomes 6). ++x is pre-increment (x becomes 7 first, then prints 7). So the output is 5 then 7.",
+    "topic": "operators"
+  },
+  {
+    "id": "python_004",
+    "language": "PYTHON",
+    "difficulty": "MEDIUM",
+    "codeSnippet": "x = [1, 2, 3]\ny = x\ny.append(4)\nprint(len(x))",
+    "question": "What is printed?",
+    "options": [
+      "3",
+      "4",
+      "Error",
+      "None"
+    ],
+    "correctAnswerIndex": 1,
+    "explanation": "In Python, lists are mutable objects. When you assign y = x, both variables reference the same list object. Appending to y also modifies x. The length is 4.",
+    "topic": "references"
+  },
+  {
+    "id": "javascript_004",
+    "language": "JAVASCRIPT",
+    "difficulty": "EASY",
+    "codeSnippet": "const person = {\n    name: 'John',\n    greet: function() {\n        console.log('Hi, ' + this.name);\n    }\n};\nconst greet = person.greet;\ngreet();",
+    "question": "What is logged?",
+    "options": [
+      "Hi, John",
+      "Hi, undefined",
+      "Hi, null",
+      "Error"
+    ],
+    "correctAnswerIndex": 1,
+    "explanation": "When you assign person.greet to a variable and call it, 'this' loses its context and refers to the global object (or undefined in strict mode). To preserve context, use bind(), call(), or arrow functions.",
+    "topic": "this_keyword"
+  },
+  {
+    "id": "kotlin_005",
+    "language": "KOTLIN",
+    "difficulty": "EASY",
+    "codeSnippet": "fun main() {\n    val str: String? = null\n    println(str.length)\n}",
+    "question": "What happens?",
+    "options": [
+      "Prints 0",
+      "Prints null",
+      "Compilation error",
+      "Runtime NullPointerException"
+    ],
+    "correctAnswerIndex": 2,
+    "explanation": "Kotlin's null safety prevents calling methods on nullable types without proper null checks. Use safe call operator (?.) or not-null assertion (!!). This code won't compile.",
+    "topic": "null_safety"
+  },
+  {
+    "id": "java_004",
+    "language": "JAVA",
+    "difficulty": "MEDIUM",
+    "codeSnippet": "public class Test {\n    public static void main(String[] args) {\n        String s = \"Hello\";\n        s.replace('l', 'p');\n        System.out.println(s);\n    }\n}",
+    "question": "What is printed?",
+    "options": [
+      "Heppo",
+      "Hello",
+      "Helo",
+      "Compilation error"
+    ],
+    "correctAnswerIndex": 1,
+    "explanation": "Strings in Java are immutable. The replace() method returns a new string but doesn't modify the original. The result should be assigned: s = s.replace('l', 'p');",
+    "topic": "strings"
+  },
+  {
+    "id": "python_005",
+    "language": "PYTHON",
+    "difficulty": "HARD",
+    "codeSnippet": "def foo(a, b=[]):\n    b.append(a)\n    return b\n\nprint(foo(1))\nprint(foo(2))",
+    "question": "What is the output?",
+    "options": [
+      "[1] then [2]",
+      "[1] then [1, 2]",
+      "[1, 2] then [1, 2]",
+      "Error"
+    ],
+    "correctAnswerIndex": 1,
+    "explanation": "Default mutable arguments are evaluated once at function definition, not at each call. The same list object is reused across calls. First call appends 1 to [], second call appends 2 to [1].",
+    "topic": "default_arguments"
+  },
+  {
+    "id": "javascript_005",
+    "language": "JAVASCRIPT",
+    "difficulty": "HARD",
+    "codeSnippet": "console.log(typeof null);\nconsole.log(typeof undefined);\nconsole.log(null == undefined);\nconsole.log(null === undefined);",
+    "question": "What is the output?",
+    "options": [
+      "null, undefined, true, false",
+      "object, undefined, true, false",
+      "null, undefined, false, false",
+      "object, undefined, false, false"
+    ],
+    "correctAnswerIndex": 1,
+    "explanation": "typeof null returns 'object' (a historical JavaScript bug). typeof undefined returns 'undefined'. null == undefined is true (loose equality), but null === undefined is false (strict equality).",
+    "topic": "types"
+  },
+  {
+    "id": "kotlin_006",
+    "language": "KOTLIN",
+    "difficulty": "MEDIUM",
+    "codeSnippet": "fun main() {\n    val numbers = mutableListOf(1, 2, 3)\n    numbers.forEach {\n        if (it == 2) {\n            numbers.remove(it)\n        }\n    }\n    println(numbers)\n}",
+    "question": "What happens?",
+    "options": [
+      "Prints [1, 3]",
+      "Prints [1, 2, 3]",
+      "ConcurrentModificationException",
+      "Compilation error"
+    ],
+    "correctAnswerIndex": 2,
+    "explanation": "You cannot modify a collection while iterating over it with forEach. This throws ConcurrentModificationException at runtime. Use removeIf() or create a new iterator instead.",
+    "topic": "collections"
+  },
+  {
+    "id": "java_005",
+    "language": "JAVA",
+    "difficulty": "EASY",
+    "codeSnippet": "public class Test {\n    public static void main(String[] args) {\n        int[] arr = new int[3];\n        System.out.println(arr[0]);\n    }\n}",
+    "question": "What is printed?",
+    "options": [
+      "null",
+      "0",
+      "undefined",
+      "Random value"
+    ],
+    "correctAnswerIndex": 1,
+    "explanation": "In Java, arrays are initialized with default values. For int arrays, the default value is 0. For boolean it's false, for objects it's null.",
+    "topic": "arrays"
+  },
+  {
+    "id": "python_006",
+    "language": "PYTHON",
+    "difficulty": "EASY",
+    "codeSnippet": "x = 5\nif x = 10:\n    print(\"Hello\")\nelse:\n    print(\"World\")",
+    "question": "What happens?",
+    "options": [
+      "Prints Hello",
+      "Prints World",
+      "SyntaxError",
+      "Nothing is printed"
+    ],
+    "correctAnswerIndex": 2,
+    "explanation": "In Python, you cannot use assignment (=) in an if condition. You must use comparison (==). This code raises a SyntaxError at parse time.",
+    "topic": "operators"
+  },
+  {
+    "id": "typescript_001",
+    "language": "TYPESCRIPT",
+    "difficulty": "MEDIUM",
+    "codeSnippet": "let value: any = \"hello\";\nlet length: number = value.length;\nvalue = 42;\nlength = value.length;\nconsole.log(length);",
+    "question": "What happens?",
+    "options": [
+      "Prints undefined",
+      "Compilation error",
+      "Runtime error",
+      "Prints 0"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "TypeScript's 'any' type disables type checking. The code compiles but at runtime, numbers don't have a length property, so value.length is undefined when value is 42.",
+    "topic": "types"
+  },
+  {
+    "id": "cpp_001",
+    "language": "CPP",
+    "difficulty": "MEDIUM",
+    "codeSnippet": "#include <iostream>\nusing namespace std;\n\nint main() {\n    int arr[5] = {1, 2, 3};\n    cout << arr[4];\n    return 0;\n}",
+    "question": "What is the output?",
+    "options": [
+      "undefined",
+      "0",
+      "Random garbage value",
+      "Compilation error"
+    ],
+    "correctAnswerIndex": 1,
+    "explanation": "In C++, when you partially initialize an array, the remaining elements are initialized to 0. arr[3] and arr[4] are both 0.",
+    "topic": "arrays"
+  },
+  {
+    "id": "go_001",
+    "language": "GO",
+    "difficulty": "EASY",
+    "codeSnippet": "package main\nimport \"fmt\"\n\nfunc main() {\n    var x int\n    fmt.Println(x)\n}",
+    "question": "What is printed?",
+    "options": [
+      "nil",
+      "0",
+      "undefined",
+      "Compilation error"
+    ],
+    "correctAnswerIndex": 1,
+    "explanation": "In Go, variables are automatically initialized to their zero value. For int, the zero value is 0. For bool it's false, for strings it's empty string, for pointers it's nil.",
+    "topic": "variables"
+  },
+  {
+    "id": "rust_001",
+    "language": "RUST",
+    "difficulty": "MEDIUM",
+    "codeSnippet": "fn main() {\n    let s = String::from(\"hello\");\n    let s2 = s;\n    println!(\"{}\", s);\n}",
+    "question": "What happens?",
+    "options": [
+      "Prints hello",
+      "Prints empty string",
+      "Compilation error",
+      "Runtime error"
+    ],
+    "correctAnswerIndex": 2,
+    "explanation": "In Rust, String doesn't implement Copy trait. When s2 = s executes, ownership moves from s to s2. Using s afterwards is a compile-time error. This is Rust's ownership system preventing use-after-move.",
+    "topic": "ownership"
+  }
+]
