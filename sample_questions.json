@@ -187,8 +187,8 @@
       "16",
       "14"
     ],
-    "correctAnswerIndex": 2,
-    "explanation": "map {it * 2} gives [2,4,6,8,10]. filter {it > 5} gives [6,8,10]. take(2) gives [6,8]. sum() gives 14. Wait, let me recalculate: 6+8=14. The answer should be 14, but option index 2 is 16. Let me check: [6,8,10] take 2 = [6,8], sum = 14.",
+    "correctAnswerIndex": 3,
+    "explanation": "map {it * 2} transforms [1,2,3,4,5] to [2,4,6,8,10]. filter {it > 5} keeps only values greater than 5, resulting in [6,8,10]. take(2) selects the first 2 elements: [6,8]. Finally, sum() adds them: 6 + 8 = 14.",
     "topic": "collections"
   },
   {
